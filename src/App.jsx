@@ -41,15 +41,20 @@ function App() {
           disabled={categoriesDataLoading && categoriesLoading}
         />
         <div className="chart-container">
-          <CategoriesChart
-            data={categoriesData?.results}
-            singleCategory={!!category}
-            isLoading={categoriesDataLoading}
-          />
-          <DifficultyChart
-            data={categoriesData?.results}
-            isLoading={categoriesDataLoading}
-          />
+          <div className="chart-item">
+            <CategoriesChart
+              data={categoriesData?.results}
+              singleCategory={!!category}
+              isLoading={categoriesDataLoading}
+            />
+          </div>
+
+          <div className="chart-item">
+            <DifficultyChart
+              data={categoriesData?.results}
+              isLoading={categoriesDataLoading}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-import "./DifiicultyChart.css";
+import "./DifficultyChart.css";
 
 const COLORS = {
   easy: "green",

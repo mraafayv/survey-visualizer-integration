@@ -1,7 +1,7 @@
 import "./App.css";
 import useFetch from "./hooks/useFetch";
 import CategoriesChart from "./components/CategoriesChart";
-import DifficultyChart from "./components/DifiicultyChart";
+import DifficultyChart from "./components/DifficultyChart";
 import CustomSelect from "./components/CustomSelect";
 import { useState } from "react";
 

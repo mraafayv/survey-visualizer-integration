@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BarChart,
   Bar,
@@ -35,6 +36,20 @@ export const CategoriesChart = ({ data = [] }) => {
     value,
   }));
 
+  const CustomTick = ({ x, y, payload }) => (
+    <text
+      x={x}
+      y={y + 4}
+      textAnchor="end"
+      transform={`rotate(-30, ${x}, ${y})`}
+      style={{ fontSize: 12 }}
+    >
+      {payload.value.length > 15
+        ? payload.value.slice(0, 15) + "…"
+        : payload.value}
+    </text>
+  );
+
   return (
     <ResponsiveContainer width="100%" maxHeight={400}>
       <BarChart
@@ -47,6 +62,8 @@ export const CategoriesChart = ({ data = [] }) => {
         <YAxis
           type="category"
           dataKey="name"
+          width={140}
+          tick={<CustomTick />}
         />
         <Tooltip />
         <Legend />

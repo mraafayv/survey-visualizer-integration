@@ -10,7 +10,11 @@ function App() {
     data: categoriesData,
     isPending: categoriesDataLoading,
     error: categoriesError,
-  } = useFetch(`https://opentdb.com/api.php?amount=50`);
+  } = useFetch(
+    `https://opentdb.com/api.php?amount=50${
+      category ? `&category=${category}` : ""
+    }`
+  );
 
   const {
     data: categories,

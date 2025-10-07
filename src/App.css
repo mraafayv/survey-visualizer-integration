@@ -1,0 +1,8 @@
+.chart-container{
+    border: 1px solid lightgrey;
+    max-width: 100%;
+    height: 400px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import useFetch from "./hooks/useFetch";
+import CategoriesChart from "./components/CategoriesChart";
+import DifficultyChart from "./components/DifficultyChart";
+import CustomSelect from "./components/CustomSelect";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [category, setCategory] = useState(0);
+  const {
+    data: categoriesData,
+    isPending: categoriesDataLoading,
+    error: categoriesError,
+  } = useFetch(
+    `https://opentdb.com/api.php?amount=50${
+      category ? `&category=${category}` : ""
+    }`
+  );
+
+  const {
+    data: categories,
+    isPending: categoriesLoading,
+    error: categoriesLookupError,
+  } = useFetch(`https://opentdb.com/api_category.php`);
+
+  const handleCategoryChange = (id) => {
+    setCategory(id);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <div id="header">
+        <h1 className="page-title">Survey Visualizer</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="main-content">
+        <CustomSelect
+          label="Categories"
+          options={categories?.trivia_categories}
+          handleChange={handleCategoryChange}
+          disabled={categoriesDataLoading && categoriesLoading}
+        />
+        <div className="chart-container">
+          <div className="chart-item">
+            <CategoriesChart
+              data={categoriesData?.results}
+              singleCategory={!!category}
+              isLoading={categoriesDataLoading}
+            />
+          </div>
+
+          <div className="chart-item">
+            <DifficultyChart
+              data={categoriesData?.results}
+              isLoading={categoriesDataLoading}
+            />
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

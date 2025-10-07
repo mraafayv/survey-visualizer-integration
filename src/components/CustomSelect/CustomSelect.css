@@ -1,0 +1,40 @@
+.custom-select {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .custom-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .custom-dropdown {
+    width: 100%;
+    padding: 0.6rem 2rem 0.6rem 0.75rem;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  
+  /* focus styles */
+  .custom-dropdown:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  }
+  
+  /* responsive tweak */
+  @media (max-width: 600px) {
+    .custom-select {
+      max-width: 100%;
+    }
+  }
+  

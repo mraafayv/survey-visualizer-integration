@@ -57,7 +57,7 @@ export const CategoriesChart = ({ data = [], singleCategory, isLoading }) => {
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis type="number" />
-            <YAxis width={140} />
+            <YAxis />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -84,7 +84,6 @@ export const CategoriesChart = ({ data = [], singleCategory, isLoading }) => {
             <YAxis
               type="category"
               dataKey="name"
-              width={140}
               interval={0}
               tick={<CustomTick />}
             />

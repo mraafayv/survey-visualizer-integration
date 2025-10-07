@@ -32,7 +32,7 @@ export const DifficultyChart = ({ data = [], isLoading }) => {
     { name: "hard", value: hard?.length },
   ];
 
-  const DifficultyChartSkeleton = () => (
+  const ChartSkeleton = () => (
     <div className="chart-skeleton">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
@@ -57,7 +57,7 @@ export const DifficultyChart = ({ data = [], isLoading }) => {
   return (
     <>
       {isLoading ? (
-        <DifficultyChartSkeleton />
+        <ChartSkeleton />
       ) : (
         <ResponsiveContainer width="100%" height={400}>
           <PieChart>

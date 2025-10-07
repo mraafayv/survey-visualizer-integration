@@ -28,26 +28,31 @@ function App() {
   };
 
   return (
-    <>
-      <h1 className="page-title">Survey Visualizer</h1>
-      <CustomSelect
-        label="Categories"
-        options={categories?.trivia_categories}
-        handleChange={handleCategoryChange}
-        disabled={categoriesDataLoading && categoriesLoading}
-      />
-      <div className="chart-container">
-        <CategoriesChart
-          data={categoriesData?.results}
-          singleCategory={!!category}
-          isLoading={categoriesDataLoading}
-        />
-        <DifficultyChart
-          data={categoriesData?.results}
-          isLoading={categoriesDataLoading}
-        />
+    <div className="app-container">
+      <div id="header">
+        <h1 className="page-title">Survey Visualizer</h1>
       </div>
-    </>
+
+      <div className="main-content">
+        <CustomSelect
+          label="Categories"
+          options={categories?.trivia_categories}
+          handleChange={handleCategoryChange}
+          disabled={categoriesDataLoading && categoriesLoading}
+        />
+        <div className="chart-container">
+          <CategoriesChart
+            data={categoriesData?.results}
+            singleCategory={!!category}
+            isLoading={categoriesDataLoading}
+          />
+          <DifficultyChart
+            data={categoriesData?.results}
+            isLoading={categoriesDataLoading}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

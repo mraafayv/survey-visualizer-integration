@@ -35,7 +35,10 @@ function App() {
         handleChange={handleCategoryChange}
       />
       <div className="chart-container">
-        <CategoriesChart data={categoriesData?.results} />
+        <CategoriesChart
+          data={categoriesData?.results}
+          singleCategory={!!category}
+        />
       </div>
     </>
   );

@@ -24,7 +24,7 @@ const COLORS = [
   "#84CC16", // lime-500
 ];
 
-export const CategoriesChart = ({ data = [] }) => {
+export const CategoriesChart = ({ data = [], singleCategory }) => {
   const categoryData = data.reduce((acc, item) => {
     const category = item.category;
     acc[category] = (acc[category] || 0) + 1;
@@ -41,8 +41,8 @@ export const CategoriesChart = ({ data = [] }) => {
       x={x}
       y={y + 4}
       textAnchor="end"
-      transform={`rotate(-30, ${x}, ${y})`}
-      style={{ fontSize: 12 }}
+      transform={`rotate(${singleCategory ? 0 : -30}, ${x}, ${y})`}
+      style={{ fontSize: `${singleCategory ? 16 : 12}` }}
     >
       {payload.value.length > 15
         ? payload.value.slice(0, 15) + "…"

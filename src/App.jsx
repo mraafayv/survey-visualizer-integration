@@ -1,6 +1,7 @@
 import "./App.css";
 import useFetch from "./hooks/useFetch";
 import CategoriesChart from "./components/CategoriesChart";
+import DifficultyChart from "./components/DifiicultyChart";
 import CustomSelect from "./components/CustomSelect";
 import { useState } from "react";
 
@@ -39,6 +40,7 @@ function App() {
           data={categoriesData?.results}
           singleCategory={!!category}
         />
+        <DifficultyChart data={categoriesData?.results} />
       </div>
     </>
   );

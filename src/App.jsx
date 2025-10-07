@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <h2>Survey Visualizer</h2>
+      <h1 className="page-title">Survey Visualizer</h1>
       <CustomSelect
         label="Categories"
         options={categories?.trivia_categories}

@@ -39,6 +39,7 @@ function App() {
         <CategoriesChart
           data={categoriesData?.results}
           singleCategory={!!category}
+          isLoading={categoriesDataLoading}
         />
         <DifficultyChart data={categoriesData?.results} />
       </div>

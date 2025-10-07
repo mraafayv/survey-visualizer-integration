@@ -34,6 +34,7 @@ function App() {
         label="Categories"
         options={categories?.trivia_categories}
         handleChange={handleCategoryChange}
+        disabled={categoriesDataLoading && categoriesLoading}
       />
       <div className="chart-container">
         <CategoriesChart

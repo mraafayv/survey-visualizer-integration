@@ -63,6 +63,7 @@ export const CategoriesChart = ({ data = [] }) => {
           type="category"
           dataKey="name"
           width={140}
+          interval={0}
           tick={<CustomTick />}
         />
         <Tooltip />

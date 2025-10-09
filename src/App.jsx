@@ -24,7 +24,7 @@ function App() {
   } = useFetch(`https://opentdb.com/api_category.php`);
 
   const handleCategoryChange = (id) => {
-    setCategory(id);
+    setCategory(Number(id));
   };
 
   return (

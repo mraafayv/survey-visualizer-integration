@@ -17,6 +17,7 @@ export const CustomSelect = ({
         onChange={(e) => handleChange(e.target.value)}
         disabled={disabled}
       >
+        <option value={0}>All</option>
         {options?.map((option) => (
           <option key={option.id} value={option?.id}>
             {option?.name}
